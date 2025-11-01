@@ -8,6 +8,7 @@ import { trpc } from "@/lib/trpc";
 import { ArrowRight, Code2, Palette, Smartphone, Star, ExternalLink, ChevronDown, ChevronUp, Sun, Moon, Check, Zap, Globe, Users, TrendingUp, Layers, Phone, Sparkles } from "lucide-react";
 import { useState } from "react";
 import ConsultationModal from "@/components/ConsultationModal";
+import Timeline from "@/components/Timeline";
 
 export default function Home() {
   const { user } = useAuth();
@@ -316,6 +317,12 @@ export default function Home() {
                 </div>
               </div>
             </div>
+          </div>
+
+          {/* Timeline */}
+          <div className="mt-12 bg-background rounded-lg p-6 border border-border">
+            <h3 className="text-xl font-bold mb-6 text-foreground">Meine Karriere-Highlights</h3>
+            <Timeline />
           </div>
 
           {/* Skills */}
