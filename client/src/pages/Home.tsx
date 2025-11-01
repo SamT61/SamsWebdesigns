@@ -9,6 +9,7 @@ import { ArrowRight, Code2, Palette, Smartphone, Star, ExternalLink, ChevronDown
 import { useState } from "react";
 import ConsultationModal from "@/components/ConsultationModal";
 import Timeline from "@/components/Timeline";
+import ProjectShowcase from "@/components/ProjectShowcase";
 
 export default function Home() {
   const { user } = useAuth();
@@ -241,46 +242,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Work Section */}
+      {/* Work Section with Before-After Sliders */}
       <section id="work" className="py-16 md:py-20">
         <div className="container">
           <div className="mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-2 text-foreground">Ausgewählte Arbeiten</h2>
-            <p className="text-sm md:text-base text-muted-foreground">Projekte, die zeigen, was ich kann</p>
+            <p className="text-sm md:text-base text-muted-foreground">Interaktive Vorher-Nachher-Vergleiche meiner besten Projekte</p>
           </div>
 
-          {projects.length > 0 ? (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {projects.map((project) => (
-                <Card key={project.id} className="overflow-hidden hover:shadow-lg hover:scale-105 transition-all duration-300 border-border">
-                  <div className="h-32 bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
-                    <Code2 className="h-10 w-10 text-primary opacity-50" />
-                  </div>
-                  <div className="p-4">
-                    <h3 className="text-base font-bold mb-1 text-foreground">{project.title}</h3>
-                    <p className="text-xs text-muted-foreground mb-3 line-clamp-2">{project.description}</p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">
-                        {project.category}
-                      </span>
-                      {project.projectUrl && (
-                        <a href={project.projectUrl} target="_blank" rel="noopener noreferrer">
-                          <ExternalLink className="h-4 w-4 text-primary hover:text-primary/80" />
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                </Card>
-              ))}
-            </div>
-          ) : (
-            <div className="text-center py-8">
-              <div className="bg-background p-8 rounded-lg border border-border">
-                <Code2 className="h-12 w-12 text-muted-foreground mx-auto mb-3 opacity-50" />
-                <p className="text-sm text-muted-foreground">Projekte werden in Kürze hinzugefügt</p>
-              </div>
-            </div>
-          )}
+          <ProjectShowcase />
         </div>
       </section>
 
