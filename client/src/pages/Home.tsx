@@ -150,24 +150,24 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-        <div className="container flex items-center justify-between h-14">
-          <div className="text-xl font-bold text-primary">Abdulsamed Temel</div>
+      <nav className="sticky top-0 z-50 bg-background/90 backdrop-blur-lg border-b border-primary/10 shadow-lg">
+        <div className="container flex items-center justify-between h-16 px-3 md:px-4">
+          <div className="text-lg md:text-xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">Abdulsamed Temel</div>
           <div className="flex items-center gap-4">
-            <a href="#work" className="text-xs md:text-sm hover:text-primary transition-colors">Arbeiten</a>
-            <a href="#services" className="text-xs md:text-sm hover:text-primary transition-colors">Services</a>
-            <a href="#pricing" className="text-xs md:text-sm hover:text-primary transition-colors">Preise</a>
-            <a href="#faq" className="text-xs md:text-sm hover:text-primary transition-colors">FAQ</a>
-            <a href="#contact" className="text-xs md:text-sm hover:text-primary transition-colors">Kontakt</a>
+            <a href="#work" className="relative text-xs md:text-sm font-medium text-foreground/80 hover:text-primary transition-colors duration-300 pb-1 group">Arbeiten<span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-primary/50 group-hover:w-full transition-all duration-300"></span></a>
+            <a href="#services" className="relative text-xs md:text-sm font-medium text-foreground/80 hover:text-primary transition-colors duration-300 pb-1 group">Services<span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-primary/50 group-hover:w-full transition-all duration-300"></span></a>
+            <a href="#pricing" className="relative text-xs md:text-sm font-medium text-foreground/80 hover:text-primary transition-colors duration-300 pb-1 group">Preise<span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-primary/50 group-hover:w-full transition-all duration-300"></span></a>
+            <a href="#faq" className="relative text-xs md:text-sm font-medium text-foreground/80 hover:text-primary transition-colors duration-300 pb-1 group">FAQ<span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-primary/50 group-hover:w-full transition-all duration-300"></span></a>
+            <a href="#contact" className="relative text-xs md:text-sm font-medium text-foreground/80 hover:text-primary transition-colors duration-300 pb-1 group">Kontakt<span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-primary/50 group-hover:w-full transition-all duration-300"></span></a>
             <button
               onClick={toggleTheme}
-              className="p-2 hover:bg-muted rounded-lg transition-all duration-300 ease-out"
+              className="p-2.5 hover:bg-primary/10 rounded-lg transition-all duration-300 ease-out hover:shadow-lg group"
               title={theme === 'light' ? 'Dunkler Modus' : 'Heller Modus'}
             >
               {theme === 'light' ? (
-                <Moon className="h-4 w-4 transition-transform duration-300" />
+                <Moon className="h-5 w-5 text-foreground/70 group-hover:text-primary transition-colors duration-300" />
               ) : (
-                <Sun className="h-4 w-4 transition-transform duration-300" />
+                <Sun className="h-5 w-5 text-primary group-hover:text-primary/80 transition-colors duration-300" />
               )}
             </button>
           </div>
