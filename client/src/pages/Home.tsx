@@ -175,10 +175,10 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative py-16 md:py-24 overflow-hidden">
+      <section className="relative py-12 md:py-16 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/5 to-transparent opacity-50" />
-        <div className="container relative z-10">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
+        <div className="container relative z-10 max-w-7xl">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="animate-slide-in">
               <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight text-foreground">
                 Webdesign, das <span className="text-primary">dein Business voranbringt</span>
@@ -223,14 +223,14 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-16 md:py-20 bg-card border-y border-border">
-        <div className="container">
-          <div className="mb-12">
+      <section id="services" className="py-12 md:py-16 bg-card border-y border-border">
+        <div className="container max-w-7xl">
+          <div className="mb-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-2 text-foreground">Was ich anbiete</h2>
             <p className="text-sm md:text-base text-muted-foreground">Umfassende Lösungen für dein Online-Erfolg</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {services.map((service, idx) => (
               <Card key={idx} className="p-5 border-primary/20 bg-gradient-to-br from-primary/5 to-transparent hover:shadow-md transition-shadow">
                 <div className="text-primary mb-3">{service.icon}</div>
@@ -243,9 +243,9 @@ export default function Home() {
       </section>
 
       {/* Work Section with Before-After Sliders */}
-      <section id="work" className="py-16 md:py-20">
-        <div className="container">
-          <div className="mb-12">
+      <section id="work" className="py-12 md:py-16">
+        <div className="container max-w-7xl">
+          <div className="mb-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-2 text-foreground">Ausgewählte Arbeiten</h2>
             <p className="text-sm md:text-base text-muted-foreground">Interaktive Vorher-Nachher-Vergleiche meiner besten Projekte</p>
           </div>
@@ -255,8 +255,8 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-16 md:py-20 bg-card border-y border-border">
-        <div className="container">
+      <section id="about" className="py-12 md:py-16 bg-card border-y border-border">
+        <div className="container max-w-7xl">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">Über mich</h2>
@@ -310,8 +310,8 @@ export default function Home() {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-16 md:py-20">
-        <div className="container">
+      <section id="pricing" className="py-12 md:py-16">
+        <div className="container max-w-7xl">
           <div className="mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-2 text-foreground">Transparente Preise</h2>
             <p className="text-sm md:text-base text-muted-foreground">Für jedes Budget die richtige Lösung</p>
@@ -360,8 +360,8 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-16 md:py-20 bg-card border-y border-border">
-        <div className="container">
+      <section className="py-12 md:py-16 bg-card border-y border-border">
+        <div className="container max-w-7xl">
           <div className="mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-2 text-foreground">Was Kunden sagen</h2>
             <p className="text-sm md:text-base text-muted-foreground">Echte Bewertungen von echten Kunden</p>
@@ -395,8 +395,8 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="py-16 md:py-20">
-        <div className="container max-w-2xl">
+      <section id="faq" className="py-12 md:py-16">
+        <div className="container max-w-4xl">
           <div className="mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-2 text-foreground">Häufig gestellte Fragen</h2>
             <p className="text-sm md:text-base text-muted-foreground">Antworten auf die wichtigsten Fragen</p>
@@ -429,8 +429,8 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-16 md:py-20 bg-card border-y border-border">
-        <div className="container max-w-2xl">
+      <section id="contact" className="py-12 md:py-16 bg-card border-y border-border">
+        <div className="container max-w-4xl">
           <div className="mb-10">
             <h2 className="text-3xl md:text-4xl font-bold mb-2 text-foreground">Lass uns zusammenarbeiten</h2>
             <p className="text-sm md:text-base text-muted-foreground">
@@ -504,8 +504,8 @@ export default function Home() {
       />
 
       {/* Footer */}
-      <footer className="bg-card border-t border-border py-8">
-        <div className="container">
+      <footer className="bg-card border-t border-border py-6">
+        <div className="container max-w-7xl">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
             <div>
               <h3 className="font-bold mb-2 text-sm text-foreground">Abdulsamed Temel</h3>
