@@ -81,4 +81,8 @@
 - [x] Improve button spacing and sizing
 - [x] Add golden accents to nav buttons
 - [x] Create smooth transitions
+- [x] Change color scheme to warm, trustworthy tones
+- [x] Replace orange with calming teal/mint green
+- [x] Add warm, inviting accents
+- [x] Ensure customer comfort and trust
 - [ ] Save checkpoint before final delivery
