@@ -36,4 +36,13 @@
 - [x] Add FAQ section
 - [x] Remove admin panel from public view
 - [x] Make design more human-centered and inspiring
+- [x] Add Abdulsamed Temel name at the beginning
+- [x] Enhance pricing with more detailed features/benefits
+- [x] Integrate VSF UI/UX library components (icons)
+- [x] Expand service descriptions with more details
+- [x] Create smooth dark mode toggle button
+- [x] Make all buttons functional
+- [x] Optimize layout for more compact design
+- [x] Add convincing hook/persuasive sentence
+- [x] Add more features to the website (6 services)
 - [ ] Save checkpoint before final delivery
