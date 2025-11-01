@@ -45,4 +45,10 @@
 - [x] Optimize layout for more compact design
 - [x] Add convincing hook/persuasive sentence
 - [x] Add more features to the website (6 services)
+- [x] Add prominent CTA button in hero section
+- [x] Create floating/sticky CTA button
+- [x] Add CTA modal/popup for consultation booking
+- [x] Add CTA buttons in multiple sections
+- [x] Create consultation form with time slots
+- [x] Add animations and hover effects to CTA
 - [ ] Save checkpoint before final delivery

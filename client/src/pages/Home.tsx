@@ -5,8 +5,9 @@ import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { trpc } from "@/lib/trpc";
-import { ArrowRight, Code2, Palette, Smartphone, Star, ExternalLink, ChevronDown, ChevronUp, Sun, Moon, Check, Zap, Globe, Users, TrendingUp, Layers } from "lucide-react";
+import { ArrowRight, Code2, Palette, Smartphone, Star, ExternalLink, ChevronDown, ChevronUp, Sun, Moon, Check, Zap, Globe, Users, TrendingUp, Layers, Phone, Sparkles } from "lucide-react";
 import { useState } from "react";
+import ConsultationModal from "@/components/ConsultationModal";
 
 export default function Home() {
   const { user } = useAuth();
@@ -14,6 +15,7 @@ export default function Home() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [expandedFAQ, setExpandedFAQ] = useState<number | null>(null);
+  const [isConsultationOpen, setIsConsultationOpen] = useState(false);
 
   const { data: projects = [] } = trpc.portfolio.list.useQuery();
   const { data: testimonials = [] } = trpc.testimonials.list.useQuery();
@@ -191,8 +193,13 @@ export default function Home() {
                 </p>
               </div>
               <div className="flex gap-3 flex-wrap">
-                <Button size="sm" className="bg-primary hover:bg-primary/90 text-sm">
-                  Projekt starten <ArrowRight className="ml-2 h-3 w-3" />
+                <Button 
+                  size="sm" 
+                  className="bg-primary hover:bg-primary/90 text-sm font-semibold animate-pulse shadow-lg hover:shadow-xl transition-all"
+                  onClick={() => setIsConsultationOpen(true)}
+                >
+                  <Sparkles className="mr-2 h-4 w-4" />
+                  Kostenlose Beratung
                 </Button>
                 <Button size="sm" variant="outline" className="text-sm">
                   Portfolio ansehen
@@ -288,8 +295,13 @@ export default function Home() {
               <p className="text-sm md:text-base text-muted-foreground mb-4 leading-relaxed">
                 Ich glaube an einen ganzheitlichen Ansatz: Großartige Websites entstehen durch die Kombination von kreativem Design, technischer Exzellenz und tiefem Verständnis für deine Zielgruppe. Jedes Projekt ist eine Partnerschaft, und dein Erfolg ist mein Erfolg.
               </p>
-              <Button size="sm" variant="outline" className="text-sm">
-                Mehr über mich
+              <Button 
+                size="sm" 
+                className="bg-primary hover:bg-primary/90 text-sm font-semibold"
+                onClick={() => setIsConsultationOpen(true)}
+              >
+                <Phone className="mr-2 h-4 w-4" />
+                Jetzt beraten lassen
               </Button>
             </div>
             <div className="relative h-64">
@@ -357,11 +369,12 @@ export default function Home() {
                   ))}
                 </ul>
                 <Button
-                  className={`w-full text-xs ${plan.highlighted ? "bg-primary hover:bg-primary/90" : ""}`}
+                  className={`w-full font-semibold ${plan.highlighted ? "bg-primary hover:bg-primary/90 shadow-lg" : ""}`}
                   variant={plan.highlighted ? "default" : "outline"}
                   size="sm"
+                  onClick={() => setIsConsultationOpen(true)}
                 >
-                  Anfragen
+                  {plan.highlighted ? "Jetzt buchen" : "Anfragen"}
                 </Button>
               </Card>
             ))}
@@ -497,6 +510,21 @@ export default function Home() {
           </Card>
         </div>
       </section>
+
+      {/* Floating CTA Button */}
+      <button
+        onClick={() => setIsConsultationOpen(true)}
+        className="fixed bottom-6 right-6 z-40 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full p-4 shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-110 animate-bounce"
+        title="Kostenlose Beratung"
+      >
+        <Phone className="h-6 w-6" />
+      </button>
+
+      {/* Consultation Modal */}
+      <ConsultationModal 
+        isOpen={isConsultationOpen} 
+        onClose={() => setIsConsultationOpen(false)}
+      />
 
       {/* Footer */}
       <footer className="bg-card border-t border-border py-8">
