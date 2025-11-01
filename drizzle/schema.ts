@@ -25,4 +25,33 @@ export const users = mysqlTable("users", {
 export type User = typeof users.$inferSelect;
 export type InsertUser = typeof users.$inferInsert;
 
-// TODO: Add your tables here
+export const portfolioProjects = mysqlTable("portfolioProjects", {
+  id: int("id").autoincrement().primaryKey(),
+  title: varchar("title", { length: 255 }).notNull(),
+  description: text("description"),
+  category: varchar("category", { length: 100 }).notNull(), // e.g., "E-commerce", "Corporate", "SaaS"
+  imageUrl: text("imageUrl"),
+  projectUrl: text("projectUrl"),
+  technologies: text("technologies"), // JSON string of tech stack
+  order: int("order").default(0),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type PortfolioProject = typeof portfolioProjects.$inferSelect;
+export type InsertPortfolioProject = typeof portfolioProjects.$inferInsert;
+
+export const testimonials = mysqlTable("testimonials", {
+  id: int("id").autoincrement().primaryKey(),
+  clientName: varchar("clientName", { length: 255 }).notNull(),
+  clientRole: varchar("clientRole", { length: 255 }),
+  clientImage: text("clientImage"),
+  content: text("content").notNull(),
+  rating: int("rating").default(5), // 1-5 stars
+  order: int("order").default(0),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type Testimonial = typeof testimonials.$inferSelect;
+export type InsertTestimonial = typeof testimonials.$inferInsert;

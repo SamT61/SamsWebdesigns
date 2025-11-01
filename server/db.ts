@@ -1,6 +1,6 @@
 import { eq } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { InsertUser, users } from "../drizzle/schema";
+import { InsertUser, users, portfolioProjects, InsertPortfolioProject, testimonials, InsertTestimonial } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -89,4 +89,67 @@ export async function getUserByOpenId(openId: string) {
   return result.length > 0 ? result[0] : undefined;
 }
 
-// TODO: add feature queries here as your schema grows.
+export async function getPortfolioProjects() {
+  const db = await getDb();
+  if (!db) return [];
+  const result = await db
+    .select()
+    .from(portfolioProjects)
+    .orderBy(portfolioProjects.order, portfolioProjects.createdAt);
+  return result;
+}
+
+export async function createPortfolioProject(project: InsertPortfolioProject) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.insert(portfolioProjects).values(project);
+}
+
+export async function updatePortfolioProject(
+  id: number,
+  updates: Partial<InsertPortfolioProject>
+) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db
+    .update(portfolioProjects)
+    .set(updates)
+    .where(eq(portfolioProjects.id, id));
+}
+
+export async function deletePortfolioProject(id: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.delete(portfolioProjects).where(eq(portfolioProjects.id, id));
+}
+
+export async function getTestimonials() {
+  const db = await getDb();
+  if (!db) return [];
+  const result = await db
+    .select()
+    .from(testimonials)
+    .orderBy(testimonials.order, testimonials.createdAt);
+  return result;
+}
+
+export async function createTestimonial(testimonial: InsertTestimonial) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.insert(testimonials).values(testimonial);
+}
+
+export async function updateTestimonial(
+  id: number,
+  updates: Partial<InsertTestimonial>
+) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.update(testimonials).set(updates).where(eq(testimonials.id, id));
+}
+
+export async function deleteTestimonial(id: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  await db.delete(testimonials).where(eq(testimonials.id, id));
+}
